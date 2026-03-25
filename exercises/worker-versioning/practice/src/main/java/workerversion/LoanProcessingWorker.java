@@ -1,4 +1,4 @@
-package getversion;
+package workerversion;
 
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;
@@ -15,9 +15,11 @@ public class LoanProcessingWorker {
     WorkerOptions options = WorkerOptions.newBuilder()
         .setDeploymentOptions(
             WorkerDeploymentOptions.newBuilder()
-                .setVersion(new WorkerDeploymentVersion("worker_versioning_demo", "2.0"))
+                // TODO Part A: Assign a Build ID as the second argument below
+                .setVersion(new WorkerDeploymentVersion("worker_versioning_demo", ""))
                 .setUseVersioning(true)
-                .setDefaultVersioningBehavior(VersioningBehavior.PINNED)
+                // TODO Part A: Set a default versioning behavior of PINNED
+                .setDefaultVersioningBehavior(VersioningBehavior.UNSPECIFIED)
                 .build())
         .build();
 

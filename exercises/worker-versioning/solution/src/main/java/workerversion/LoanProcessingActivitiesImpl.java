@@ -1,7 +1,7 @@
-package getversion;
+package workerversion;
 
-import getversion.model.ChargeInput;
-import getversion.model.CustomerInfo;
+import workerversion.model.ChargeInput;
+import workerversion.model.CustomerInfo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
