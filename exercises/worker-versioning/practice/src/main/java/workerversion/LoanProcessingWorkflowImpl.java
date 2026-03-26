@@ -1,14 +1,14 @@
-package getversion;
+package workerversion;
 
 import org.slf4j.Logger;
 
-import getversion.model.CustomerInfo;
-import getversion.model.ChargeInput;
+import workerversion.model.CustomerInfo;
+import workerversion.model.ChargeInput;
 
 import io.temporal.common.SearchAttributeKey;
 import io.temporal.workflow.Workflow;
 import io.temporal.activity.ActivityOptions;
-import java.util.Arrays;
+
 import java.util.List;
 import java.time.Duration;
 

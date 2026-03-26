@@ -1,6 +1,6 @@
-package getversion.model;
+package workerversion.model;
 
-import getversion.model.CustomerInfoDatabase;
+import workerversion.model.CustomerInfoDatabase;
 
 public interface CustomerInfoDatabase {
     CustomerInfo get(String customerID);

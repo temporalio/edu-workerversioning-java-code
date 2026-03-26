@@ -1,8 +1,8 @@
-package getversion;
+package workerversion;
 
 import io.temporal.activity.ActivityInterface;
-import getversion.model.ChargeInput;
-import getversion.model.CustomerInfo;
+import workerversion.model.ChargeInput;
+import workerversion.model.CustomerInfo;
 
 @ActivityInterface
 public interface LoanProcessingActivities {

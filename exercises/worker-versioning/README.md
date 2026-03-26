@@ -30,7 +30,7 @@ the complete version in the `solution` subdirectory.
    Workflows handled by this Worker will default to automatically running on
    your newest code revision, or will remain Pinned until being migrated
    manually. For now, set it to `VersioningBehavior.PINNED`.
-3. Start your Worker by running `mvn clean compile exec:java -Dexec.mainClass="getversion.LoanProcessingWorker"`.
+3. Start your Worker by running `mvn clean compile exec:java -Dexec.mainClass="workerversion.LoanProcessingWorker"`.
    You should receive output containing your Build ID:
 
    ```
@@ -47,7 +47,7 @@ the complete version in the `solution` subdirectory.
          DeploymentName      BuildId  DrainageStatus    CreateTime
      worker_versioning_demo  1.0      unspecified     17 seconds ago
    ```
-5. Next, run `mvn clean compile exec:java -Dexec.mainClass="getversion.Starter" -Dexec.args="a100"`
+5. Next, run `mvn clean compile exec:java -Dexec.mainClass="workerversion.Starter" -Dexec.args="a100"`
    to kick off a Workflow. You can check the Temporal Web UI to ensure that it is running normally.
 
 ## Part B: Move a Pinned Workflow to a new Version
@@ -61,7 +61,7 @@ the complete version in the `solution` subdirectory.
    cause a non-determinism error by causing your Event History to go out of sync
    on Replay. With Worker Versioning, however, you can avoid this. Save the file.
 2. Edit the `LoanProcessingWorker.java` file again, and increment your BuildID to `2.0`.
-   Save the file. In another terminal, start another Worker by running `mvn clean compile exec:java -Dexec.mainClass="getversion.LoanProcessingWorker"`.
+   Save the file. In another terminal, start another Worker by running `mvn clean compile exec:java -Dexec.mainClass="workerversion.LoanProcessingWorker"`.
    You should now have both a "1.0" and a "2.0" Worker running.
    The Workflow you already started will continue to run with the "1.0" Worker,
    and the "2.0" Worker will poll the Temporal Service until it has a "2.0"
@@ -82,7 +82,7 @@ the complete version in the `solution` subdirectory.
      worker_versioning_demo  1.0      unspecified     7 minutes ago
    ```
 4. Kick off another Workflow, by running
-   `mvn clean compile exec:java -Dexec.mainClass="getversion.Starter" -Dexec.args="a101"`
+   `mvn clean compile exec:java -Dexec.mainClass="workerversion.Starter" -Dexec.args="a101"`
    That Workflow would again be handled by the
    "1.0" Worker, rather than using your updated code. This is because you
    configured this Worker's default versioning behavior to Pinned rather than
@@ -96,7 +96,7 @@ the complete version in the `solution` subdirectory.
        --build-id "2.0"
    ```
 6. Finally, after running this command, go ahead and run
-   `mvn clean compile exec:java -Dexec.mainClass="getversion.Starter" -Dexec.args="a101"`
+   `mvn clean compile exec:java -Dexec.mainClass="workerversion.Starter" -Dexec.args="a101"`
    to kick off a new Workflow. It will be handled by
    your "2.0" Worker, and reflect your code changes, running the second Activity
    after the `for` loop.
